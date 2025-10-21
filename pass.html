@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>View Saved Credentials</title>
+</head>
+<body>
+<h2>Saved Credentials</h2>
+<pre id="output"></pre>
+
+<script>
+// Read credentials from localStorage
+const saved = JSON.parse(localStorage.getItem('creds') || '{}');
+
+if (saved.user || saved.pass) {
+  document.getElementById('output').textContent = 
+      `Username: ${saved.user || '(none)'}\nPassword: ${saved.pass || '(none)'}`;
+} else {
+  document.getElementById('output').textContent = 'No credentials saved yet.';
+}
+</script>
+</body>
+</html>
